@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
-#include <map>
+#include <unordered_map>
 
-void permutation(int n,std::vector<bool> &used,std::vector<int> &v,int len,std::map<int,int> &ref){
+void permutation(int n,std::vector<bool> &used,std::vector<int> &v,int len,std::unordered_map<int,int> &ref){
     if (len < n){
         for (int i = 0 ; i < n ; i++){
             if (!used[i]){
-                if (ref.find(i) != ref.end() && used[ref[i]]) {
+                if (ref.find(i) != ref.end() && !used[ref[i]]) {
                     continue;
                 }
                 used[i] = true;
@@ -28,11 +28,11 @@ int main (){
     std::cin >> n >> m;
     std::vector<bool> used(n);
     std::vector<int> v(n); 
-    std::map<int,int> ref;
+    std::unordered_map<int,int> ref;
 
     while(m--){
         std::cin >> tmp >> tmp1;
-        ref[tmp] = tmp1;
+        ref[tmp1] = tmp;
     }
     permutation(n,used,v,0,ref);
 }
