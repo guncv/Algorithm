@@ -67,6 +67,7 @@
         "concepts": "cpp",
         "algorithm": "cpp",
         "iomanip": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "set": "cpp"
     }
 }
